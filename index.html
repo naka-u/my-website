@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大学1年生の自己紹介｜飼いたいペットについて</title>
+  <style>
+    /* 配色テーマ：読みやすさを優先した落ち着いたセージグリーン1色 */
+    :root {
+      --bg-color: #f6f9f7;       /* 目に優しい淡いグリーン系の背景 */
+      --card-bg: #ffffff;        /* 本文エリアの白 */
+      --main-color: #2e6f56;     /* 見出し・アクセントの落ち着いたグリーン */
+      --sub-color: #e1ede7;      /* メニュー背景や区切り線の淡いグリーン */
+      --text-color: #2c3330;     /* 読みやすいダークグレーの文字 */
+      --link-color: #1d5fa7;     /* リンクと分かりやすいブルー */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      /* 外部フォントを使わずOS標準の読みやすいゴシック体を指定 */
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.85;
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 広い画面でも1行が長くなりすぎないよう横幅を制限 */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    /* 見出し（ヘッダー） */
+    header {
+      background-color: var(--main-color);
+      color: #ffffff;
+      padding: 28px 24px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+    }
+
+    header .label {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 1.65rem;
+      line-height: 1.4;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    /* ページ内メニュー */
+    nav {
+      background-color: var(--sub-color);
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+    }
+
+    nav .nav-title {
+      margin: 0 0 10px;
+      font-weight: bold;
+      color: var(--main-color);
+      font-size: 0.95rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      display: inline-block;
+      background-color: var(--card-bg);
+      color: var(--main-color);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 1px solid var(--main-color);
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: var(--main-color);
+      color: #ffffff;
+    }
+
+    /* 本文セクション */
+    section {
+      background-color: var(--card-bg);
+      padding: 26px 28px;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      border: 1px solid var(--sub-color);
+    }
+
+    h2 {
+      color: var(--main-color);
+      border-bottom: 2px solid var(--sub-color);
+      padding-bottom: 8px;
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.3rem;
+      line-height: 1.4;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 動物イラストと文章の横並びレイアウト */
+    .pet-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .pet-figure {
+      flex: 0 0 220px;
+      margin: 4px 0 0;
+      text-align: center;
+    }
+
+    .pet-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--sub-color);
+    }
+
+    .pet-figure figcaption {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: #5a6661;
+    }
+
+    .pet-text {
+      flex: 1;
+    }
+
+    /* 公式サイトへのリンク */
+    .official-link {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--link-color);
+      font-weight: bold;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    .official-link:hover {
+      opacity: 0.75;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5a6661;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--sub-color);
+    }
+
+    /* 狭い画面（スマートフォンなど）向けの調整 */
+    @media (max-width: 640px) {
+      .container {
+        padding: 16px 12px;
+      }
+
+      header {
+        padding: 22px 16px;
+      }
+
+      header h1 {
+        font-size: 1.35rem;
+      }
+
+      nav {
+        padding: 14px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      nav a {
+        display: block;
+        text-align: center;
+      }
+
+      section {
+        padding: 20px 16px;
+      }
+
+      h2 {
+        font-size: 1.15rem;
+      }
+
+      .pet-content {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .pet-figure {
+        flex: none;
+        width: 100%;
+        max-width: 240px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 見出し -->
+    <header>
+      <span class="label">大学1年生の自己紹介</span>
+      <h1>今気になっている「飼いたいペット」について</h1>
+      <p>同級生のみなさんへ：最近関心を持っている生き物の話をまとめました。</p>
+    </header>
+
+    <!-- ページ内メニュー -->
+    <nav aria-label="ページ内メニュー">
+      <p class="nav-title">ページ内メニュー</p>
+      <ul>
+        <li><a href="#about">はじめに</a></li>
+        <li><a href="#hamster">ハムスターについて</a></li>
+        <li><a href="#chinchilla">チンチラについて</a></li>
+        <li><a href="#fish">魚について</a></li>
+        <li><a href="#official">公式サイトへのリンク</a></li>
+      </ul>
+    </nav>
+
+    <!-- 本文 -->
+    <main>
+      <section id="about">
+        <h2>はじめに</h2>
+        <p>
+          はじめまして、大学1年生です。同級生のみなさんに自分の関心を知ってもらうために、この自己紹介ページを作りました。普段の会話だけではなかなか伝えきれない、自分が今一番気になっているテーマを文章にしています。
+        </p>
+        <p>
+          最近ずっと頭の中で考えているのは、「これからどんなペットを飼いたいか」ということです。まだ実際に飼い始めているわけではありませんが、いくつかの生き物を候補に思い浮かべながら、それぞれの良さや気になる点について自分なりに整理しています。
+        </p>
+      </section>
+
+      <section id="hamster">
+        <h2>ハムスター：飼ってみたいけれど寿命が短い</h2>
+        <div class="pet-content">
+          <figure class="pet-figure">
+            <!-- 外部画像を使わないインラインSVGイラスト（ハムスター） -->
+            <svg viewBox="0 0 240 160" role="img" aria-label="ひまわりの種を持つハムスターのイラスト">
+              <rect width="240" height="160" rx="12" fill="#f2f7f4" />
+              <ellipse cx="120" cy="138" rx="52" ry="8" fill="#dce8e1" />
+              <!-- 耳 -->
+              <circle cx="92" cy="48" r="14" fill="#d49b63" />
+              <circle cx="92" cy="48" r="8" fill="#f2b8b5" />
+              <circle cx="148" cy="48" r="14" fill="#d49b63" />
+              <circle cx="148" cy="48" r="8" fill="#f2b8b5" />
+              <!-- 体とお腹 -->
+              <ellipse cx="120" cy="102" rx="42" ry="36" fill="#e5b582" />
+              <ellipse cx="120" cy="108" rx="28" ry="26" fill="#fff9f0" />
+              <!-- 頭と頬袋 -->
+              <path d="M 85 72 C 85 48, 155 48, 155 72 C 163 82, 160 96, 145 98 L 95 98 C 80 96, 77 82, 85 72 Z" fill="#e5b582" />
+              <path d="M 98 78 C 98 68, 142 68, 142 78 C 148 86, 146 96, 136 98 L 104 98 C 94 96, 92 86, 98 78 Z" fill="#fff9f0" />
+              <!-- 目 -->
+              <circle cx="104" cy="72" r="4.5" fill="#2c3330" />
+              <circle cx="102.5" cy="70.5" r="1.5" fill="#ffffff" />
+              <circle cx="136" cy="72" r="4.5" fill="#2c3330" />
+              <circle cx="134.5" cy="70.5" r="1.5" fill="#ffffff" />
+              <!-- ほっぺ・鼻・口 -->
+              <ellipse cx="94" cy="83" rx="6" ry="3.5" fill="#f5a9a9" opacity="0.7" />
+              <ellipse cx="146" cy="83" rx="6" ry="3.5" fill="#f5a9a9" opacity="0.7" />
+              <ellipse cx="120" cy="79" rx="3" ry="2" fill="#e88a8a" />
+              <path d="M 115 84 Q 120 88 120 84 Q 120 88 125 84" fill="none" stroke="#6e4e32" stroke-width="1.8" stroke-linecap="round" />
+              <!-- ひまわりの種と手足 -->
+              <ellipse cx="120" cy="105" rx="7" ry="11" transform="rotate(-15 120 105)" fill="#4a4a4a" />
+              <path d="M 118 96 L 121 114 M 122 97 L 124 112" stroke="#ffffff" stroke-width="1.5" />
+              <ellipse cx="109" cy="104" rx="6" ry="4.5" fill="#f5c6b8" />
+              <ellipse cx="131" cy="104" rx="6" ry="4.5" fill="#f5c6b8" />
+              <ellipse cx="98" cy="134" rx="9" ry="5" fill="#f5c6b8" />
+              <ellipse cx="142" cy="134" rx="9" ry="5" fill="#f5c6b8" />
+            </svg>
+            <figcaption>ハムスターのイメージ</figcaption>
+          </figure>
+          <div class="pet-text">
+            <p>
+              今一番飼ってみたいと思っている候補はハムスターです。手のひらに収まりそうな小さな体や、つぶらな瞳、ちょこちょこと動き回る愛らしい姿がとても魅力的で、身近なペットとしてずっと憧れを持っています。
+            </p>
+            <p>
+              ただ、どうしても気になっているのが寿命の短さです。せっかく大切な家族としてお迎えするなら、できるだけ長い時間を一緒に過ごしたいという気持ちが強いため、お別れが早く来てしまうかもしれないと考えると少し寂しく、そこが一番の悩みどころになっています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="chinchilla">
+        <h2>チンチラ：見た目があまり好みではない</h2>
+        <div class="pet-content">
+          <figure class="pet-figure">
+            <!-- 外部画像を使わないインラインSVGイラスト（チンチラ） -->
+            <svg viewBox="0 0 240 160" role="img" aria-label="大きな耳とふわふわのしっぽを持つチンチラのイラスト">
+              <rect width="240" height="160" rx="12" fill="#f2f7f4" />
+              <ellipse cx="122" cy="138" rx="58" ry="8" fill="#dce8e1" />
+              <!-- しっぽ -->
+              <path d="M 145 125 C 180 125, 195 95, 185 72 C 178 58, 162 64, 165 78 C 168 92, 155 105, 140 108 Z" fill="#8d969e" />
+              <!-- 大きな耳 -->
+              <ellipse cx="86" cy="44" rx="15" ry="20" transform="rotate(-22 86 44)" fill="#8d969e" />
+              <ellipse cx="86" cy="45" rx="9" ry="13" transform="rotate(-22 86 45)" fill="#d6c5c9" />
+              <ellipse cx="134" cy="44" rx="15" ry="20" transform="rotate(22 134 44)" fill="#8d969e" />
+              <ellipse cx="134" cy="45" rx="9" ry="13" transform="rotate(22 134 45)" fill="#d6c5c9" />
+              <!-- 体とお腹 -->
+              <ellipse cx="112" cy="102" rx="38" ry="35" fill="#9ea7af" />
+              <ellipse cx="108" cy="108" rx="24" ry="24" fill="#f0f2f4" />
+              <!-- 頭 -->
+              <ellipse cx="110" cy="68" rx="32" ry="26" fill="#9ea7af" />
+              <!-- 目 -->
+              <circle cx="96" cy="66" r="5" fill="#2c3330" />
+              <circle cx="94.5" cy="64.5" r="1.6" fill="#ffffff" />
+              <circle cx="124" cy="66" r="5" fill="#2c3330" />
+              <circle cx="122.5" cy="64.5" r="1.6" fill="#ffffff" />
+              <!-- 鼻・口・ひげ -->
+              <ellipse cx="110" cy="74" rx="3.5" ry="2.2" fill="#cfa5ad" />
+              <path d="M 106 79 Q 110 82 110 79 Q 110 82 114 79" fill="none" stroke="#5c636a" stroke-width="1.6" stroke-linecap="round" />
+              <line x1="88" y1="73" x2="62" y2="68" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" />
+              <line x1="88" y1="77" x2="60" y2="78" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" />
+              <line x1="132" y1="73" x2="158" y2="68" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" />
+              <line x1="132" y1="77" x2="160" y2="78" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" />
+              <!-- 手足 -->
+              <ellipse cx="100" cy="102" rx="5.5" ry="4" fill="#d6c5c9" />
+              <ellipse cx="120" cy="102" rx="5.5" ry="4" fill="#d6c5c9" />
+              <ellipse cx="94" cy="134" rx="10" ry="5" fill="#d6c5c9" />
+              <ellipse cx="128" cy="134" rx="10" ry="5" fill="#d6c5c9" />
+            </svg>
+            <figcaption>チンチラのイメージ</figcaption>
+          </figure>
+          <div class="pet-text">
+            <p>
+              ハムスター以外の小動物として、チンチラについても候補に挙げて考えてみました。ふわふわとした毛並みや大きな耳が特徴的な生き物ですが、自分自身の正直な感覚としては、見た目があまり好きではありません。
+            </p>
+            <p>
+              ペットを飼うとなると毎日顔を合わせてお世話をしていくことになるため、やはり自分が心から「可愛い」「一緒に過ごしたい」と思える生き物を選ぶことが大切だと感じています。そのため、今のところチンチラは候補から外れています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="fish">
+        <h2>魚：あまりよくわからない</h2>
+        <div class="pet-content">
+          <figure class="pet-figure">
+            <!-- 外部画像を使わないインラインSVGイラスト（魚） -->
+            <svg viewBox="0 0 240 160" role="img" aria-label="水草の中を泳ぐ魚のイラスト">
+              <rect width="240" height="160" rx="12" fill="#e8f4f8" />
+              <path d="M 0 142 Q 60 136 120 142 T 240 142 L 240 160 L 0 160 Z" fill="#cfe6ed" />
+              <!-- 水草 -->
+              <path d="M 38 145 Q 30 120 40 98 Q 48 120 42 145 Z" fill="#5da683" />
+              <path d="M 50 145 Q 58 124 50 106 Q 44 124 48 145 Z" fill="#77bfa0" />
+              <path d="M 196 145 Q 188 122 198 102 Q 204 122 200 145 Z" fill="#5da683" />
+              <!-- ひれ -->
+              <path d="M 142 82 C 166 56, 186 60, 178 82 C 186 104, 166 108, 142 82 Z" fill="#f79256" />
+              <path d="M 96 58 C 106 38, 128 40, 134 62 Z" fill="#f79256" />
+              <path d="M 108 104 C 114 118, 126 118, 128 102 Z" fill="#f79256" />
+              <!-- 魚の体 -->
+              <ellipse cx="110" cy="82" rx="38" ry="25" fill="#ff7b47" />
+              <path d="M 102 58 C 114 58, 118 106, 102 106 C 94 106, 92 58, 102 58 Z" fill="#ffffff" opacity="0.9" />
+              <ellipse cx="105" cy="88" rx="9" ry="5" transform="rotate(20 105 88)" fill="#ffb085" />
+              <!-- 目と口 -->
+              <circle cx="86" cy="77" r="4.5" fill="#2c3330" />
+              <circle cx="84.5" cy="75.5" r="1.5" fill="#ffffff" />
+              <path d="M 72 82 Q 76 85 72 87" fill="none" stroke="#d95326" stroke-width="2" stroke-linecap="round" />
+              <!-- 気泡 -->
+              <circle cx="62" cy="60" r="4" fill="none" stroke="#85c4d6" stroke-width="1.5" />
+              <circle cx="55" cy="44" r="5.5" fill="none" stroke="#85c4d6" stroke-width="1.5" />
+              <circle cx="66" cy="30" r="3" fill="none" stroke="#85c4d6" stroke-width="1.5" />
+            </svg>
+            <figcaption>魚のイメージ</figcaption>
+          </figure>
+          <div class="pet-text">
+            <p>
+              小動物とは少し違った選択肢として、水槽の中で泳ぐ魚についても頭の中に思い浮かんでみました。静かに泳ぐ姿を眺めるのは落ち着きそうなイメージがあります。
+            </p>
+            <p>
+              ただ、正直なところ魚についてはあまりよくわからないというのが今の現状です。どんな種類がいるのか、日々の水替えや温度管理などのお世話をどのように進めていくのかもまだ具体的なイメージが湧いていないため、これから少しずつ知っていけたらいいなと思っています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="official">
+        <h2>公式サイトへのリンク</h2>
+        <p>
+          どの生き物を飼うにしても、事前に正しい知識や飼い主としての心構えを持っておくことが大切だと考えています。ペットを飼ううえで守るべきルールや基本的な考え方を確認するために、環境省の公式ページを参考にしています。動物に関心がある同級生がいたら、ぜひ一度見てみてください。
+        </p>
+        <p>
+          <a class="official-link" href="https://www.env.go.jp/nature/dobutsu/aigo/" target="_blank" rel="noopener noreferrer">
+            環境省「動物の愛護と適切な管理」公式サイト
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>大学1年生 自己紹介Webサイト</p>
+    </footer>
+  </div>
+
+</body>
+</html>
